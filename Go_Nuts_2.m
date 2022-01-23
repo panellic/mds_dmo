@@ -1,8 +1,7 @@
 
-
 f=[21, 22.5, 22.5, 24.5, 23, 25.5, 1500, 2000, 3000];
 
-intcon = 9;
+intcon = [1,2,3,4,5,6,7,8,9];
 
 A=zeros(14, 9);
 
@@ -26,7 +25,11 @@ A(14,6)=-1;
 
 b=[425,400,750,-550,-450,0,0,0,0,0,0,0,0,0];
 
-%lb = zeros(9,1);
-%ub = [Inf;Inf;Inf;Inf;Inf;Inf;1;1;1];
+lb = zeros(9,1);
+ub = [Inf;Inf;Inf;Inf;Inf;Inf;1;1;1];
 
-%[xx,fval,exitflag,output] = intlinprog(f,intcon,A,b,lb,ub);
+Aeq = [];
+beq = [];
+
+[x,fval,exitflag,output] = intlinprog(f,intcon,A,b,Aeq,beq,lb,ub);
+
